@@ -67,7 +67,7 @@ var areaChartSvg = d3.select(".areaChartBox").append("svg")
 var markerLine = areaChartSvg.append('line')
 .attr('x1', 0)
 .attr('y1', 0)
-.attr('x2', 0) 
+.attr('x2', 0)
 .attr('y2', areaChartHeight )
 .attr("class","markerLine");
 
@@ -108,11 +108,11 @@ areaChartSvg.append("g")
 
 //end area chart
 
-//listeners 
+//listeners
 
 $('.slower').click(function(){
     if(timeFactor > 1){
-        timeFactor -= 1;  
+        timeFactor -= 1;
     };
 
     $('.timeFactor').html(timeFactor);
@@ -168,9 +168,9 @@ function updateTimer() {
 }
 
 //get a random number between 0 and 11
-var number = Math.floor(Math.random() * 15) 
+var number = Math.floor(Math.random() * 15)
 
-d3.json('http://localhost/data/routes/data/taxiday' + number + '.geojson', function (data) {
+d3.json('https://mgzjys.github.io/testroutes/data/taxiday' + number + '.geojson', function (data) {
 
     console.log("Loaded data for medallion: " + data.features[0].properties.medallion);
 
@@ -270,7 +270,7 @@ points = g.selectAll(".point")
     }
 })
 .attr("transform",function(d){
-    return translatePoint(d);  
+    return translatePoint(d);
 });
 
 if(d.properties.hasfare) { //transition marker to show full taxi
@@ -355,7 +355,7 @@ function transition(path) {
         if (nextPath[0][0]==null){
             clearTimeout(timer);
         } else {
-            iterate(); 
+            iterate();
         }
 
 
@@ -396,7 +396,7 @@ if(chartInterval == 5){
 
 
     if(isNaN(d.properties.fare)){
-        d.properties.fare = 0; 
+        d.properties.fare = 0;
     }
 
     var incrementalFare = d.properties.fare*t;
@@ -494,7 +494,7 @@ function projectPoint(x, y) {
 }
 
 function translatePoint(d) {
-    var point = map.latLngToLayerPoint(new L.LatLng(d[1],d[0]));  
+    var point = map.latLngToLayerPoint(new L.LatLng(d[1],d[0]));
 
     return "translate(" + point.x + "," + point.y + ")";
 }
@@ -503,4 +503,3 @@ function coordToLatLon(coord) {
 var point = map.layerPointToLatLng(new L.Point(coord[0],coord[1]));
 return point;
 }
-
