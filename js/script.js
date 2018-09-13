@@ -209,10 +209,10 @@ d3.json('https://mgzjys.github.io/testroutes/data/taxiday' + number + '.geojson'
   //var string = JSON.stringify(j);
 
 
-  //map.on("viewreset", reset);
-  //map.on("zoomend", reset);
+  map.on("viewreset", reset);
+  map.on("zoomend", reset);
 
-  
+
   reset();
   var i = 0;
   function iterate() {
