@@ -184,9 +184,7 @@ function updateTimer() {
 var number = Math.floor(Math.random() * 15)
 
 d3.json('https://mgzjys.github.io/testroutes/data/taxiday' + number + '.geojson', function(data) {
-
   console.log("Loaded data for medallion: " + data.features[0].properties.medallion);
-
   var feature = g.selectAll("path")
     .data(data.features)
     .enter().append("path")
@@ -209,8 +207,12 @@ d3.json('https://mgzjys.github.io/testroutes/data/taxiday' + number + '.geojson'
 
   //Get path start point for placing marker
   //var string = JSON.stringify(j);
-  map.on("viewreset", reset);
-  map.on("zoomend", reset);
+
+
+  //map.on("viewreset", reset);
+  //map.on("zoomend", reset);
+
+  
   reset();
   var i = 0;
   function iterate() {
