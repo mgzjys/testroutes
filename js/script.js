@@ -170,7 +170,7 @@ function updateTimer() {
 //get a random number between 0 and 11
 var number = Math.floor(Math.random() * 15) 
 
-d3.json('data/taxiday' + number + '.geojson', function (data) {
+d3.json('http://localhost/data/routes/data/taxiday' + number + '.geojson', function (data) {
 
     console.log("Loaded data for medallion: " + data.features[0].properties.medallion);
 
