@@ -182,8 +182,8 @@ function updateTimer() {
 
 //get a random number between 0 and 11
 var number = Math.floor(Math.random() * 15)
-
-d3.json('https://mgzjys.github.io/testroutes/data/taxiday' + number + '.geojson', function(data) {
+d3.json('https://mgzjys.github.io/testroutes/data/taxiday1.geojson', function(data) {
+d3.json('https://mgzjys.github.io/testroutes/data/taxiday0.geojson', function(data) {
   console.log("Loaded data for medallion: " + data.features[0].properties.medallion);
   var feature = g.selectAll("path")
     .data(data.features)
@@ -320,6 +320,7 @@ d3.json('https://mgzjys.github.io/testroutes/data/taxiday' + number + '.geojson'
         if (tweenToggle == 0) {
           tweenToggle = 1;
           var newCenter = map.layerPointToLatLng(new L.Point(p.x, p.y));
+          //autoadjust
         //  map.panTo(newCenter, 14);
         } else {
           tweenToggle = 0;
@@ -401,6 +402,10 @@ d3.json('https://mgzjys.github.io/testroutes/data/taxiday' + number + '.geojson'
       });
   }
 });
+
+
+});
+
 // Use Leaflet to implement a D3 geometric transformation.
 function projectPoint(x, y) {
   var point = map.latLngToLayerPoint(new L.LatLng(y, x));
