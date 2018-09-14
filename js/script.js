@@ -320,7 +320,7 @@ d3.json('https://mgzjys.github.io/testroutes/data/taxiday' + number + '.geojson'
         if (tweenToggle == 0) {
           tweenToggle = 1;
           var newCenter = map.layerPointToLatLng(new L.Point(p.x, p.y));
-          map.panTo(newCenter, 14);
+        //  map.panTo(newCenter, 14);
         } else {
           tweenToggle = 0;
         }
